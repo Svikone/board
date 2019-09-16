@@ -1,0 +1,138 @@
+/* line 1, ../sass/main.scss */
+body {
+  background: #607D8B;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* line 6, ../sass/main.scss */
+.form {
+  padding: 10px;
+  background: blue;
+  border-radius: 10px;
+  display: flex;
+}
+/* line 11, ../sass/main.scss */
+.form .sendContainer {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-family: sans-serif;
+  background: #607D8B;
+  padding: 10px;
+  border-right: 1px solid #b8b1a6;
+  border-radius: 10px;
+}
+/* line 20, ../sass/main.scss */
+.form .sendContainer .text {
+  border: none;
+  background: none;
+  border-bottom: 2px solid orange;
+  color: orange;
+  width: 189px;
+  font-size: 17px;
+}
+/* line 28, ../sass/main.scss */
+.form .sendContainer .send {
+  padding: 5px;
+  background: orange;
+  border-radius: 10px;
+  width: 176px;
+  margin-top: 5px;
+  text-align: center;
+  color: white;
+}
+/* line 36, ../sass/main.scss */
+.form .sendContainer .send:hover {
+  cursor: pointer;
+  background: #db8e01;
+}
+
+/* line 46, ../sass/main.scss */
+.board .notes {
+  max-width: 300px;
+  padding: 10px;
+  background: #db8e01;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  font-family: sans-serif;
+}
+
+/* line 58, ../sass/main.scss */
+.reg {
+  display: flex;
+  justify-content: center;
+}
+/* line 61, ../sass/main.scss */
+.reg form {
+  border-radius: 20px;
+  text-align: center;
+  width: 400px;
+  font-family: sans-serif;
+  background: black;
+  color: white;
+  padding: 30px 0px 30px 0px;
+}
+/* line 69, ../sass/main.scss */
+.reg form .intel {
+  display: flex;
+  /* justify-content: space-between; */
+  background: #3498db;
+  color: black;
+  margin-top: 10px;
+}
+/* line 75, ../sass/main.scss */
+.reg form .intel .sign {
+  background: #2196f3;
+  flex: 1;
+  padding: 5px;
+  cursor: pointer;
+  transition: 0.45s;
+}
+/* line 82, ../sass/main.scss */
+.reg form .intel .signIn {
+  background: #8bc34a;
+}
+/* line 86, ../sass/main.scss */
+.reg form .signInMenu {
+  display: none;
+}
+/* line 90, ../sass/main.scss */
+.reg form .inp {
+  color: white;
+  background: none;
+  width: 250px;
+  border-radius: 15px;
+  border: 2px  solid #3498db;
+  padding: 5px;
+  margin-top: 5px;
+  text-align: center;
+  outline: none;
+  transition: 0.25s;
+}
+/* line 101, ../sass/main.scss */
+.reg form .inp:focus {
+  width: 300px;
+  border-color: #2ecc71;
+}
+/* line 106, ../sass/main.scss */
+.reg form .btn {
+  color: white;
+  background: none;
+  border-radius: 15px;
+  border: 2px  solid #3498db;
+  padding: 5px;
+  margin-top: 5px;
+  text-align: center;
+  outline: none;
+  font-weight: bold;
+  width: 263px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+/* line 119, ../sass/main.scss */
+.reg form .btn:hover {
+  background: #2ecc71;
+  color: black;
+}

@@ -1,0 +1,125 @@
+body{
+    background: #607D8B;
+    margin: 0px;
+    padding: 0px;
+}
+.form {
+    padding: 10px;
+    background: blue;
+    border-radius: 10px;
+    display: flex;
+    .sendContainer {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        font-family: sans-serif;
+        background: #607D8B;
+        padding: 10px;
+        border-right: 1px solid #b8b1a6;
+        border-radius: 10px;
+        .text {
+            border: none;
+            background: none;
+            border-bottom: 2px solid orange;
+            color: orange;
+            width: 189px;
+            font-size: 17px
+        }
+        .send {
+            padding: 5px;
+            background: orange;
+            border-radius: 10px;
+            width: 176px;
+            margin-top: 5px;
+            text-align: center;
+            color: white;
+            &:hover {
+                cursor: pointer;
+                background: #db8e01;
+            }
+        }
+    }
+    
+}
+.board {
+    
+    .notes {
+        max-width: 300px;
+        padding: 10px;
+        background: #db8e01;
+        border-radius: 10px;
+        box-shadow:  0 0 10px rgba(0,0,0,0.5);
+        cursor: pointer;
+        font-family: sans-serif;
+        
+    }
+}
+
+.reg {
+    display: flex;
+    justify-content: center;
+    form {
+        border-radius: 20px;
+        text-align: center;
+        width: 400px;
+        font-family: sans-serif;
+        background: black;
+        color: white;
+        padding: 30px 0px 30px 0px;
+        .intel {
+            display: flex;
+            /* justify-content: space-between; */
+            background: #3498db;
+            color: black;
+            margin-top: 10px;
+            .sign {
+                background: #2196f3;
+                flex: 1;
+                padding: 5px;
+                cursor: pointer;
+                transition: 0.45s;
+            }
+            .signIn {
+                background: #8bc34a;
+            }
+        }
+        .signInMenu {
+            display: none;
+            
+        }
+        .inp {
+            color: white;
+            background: none;
+            width: 250px;
+            border-radius: 15px;
+            border: 2px  solid #3498db;
+            padding: 5px;
+            margin-top: 5px;
+            text-align: center;
+            outline: none;
+            transition: 0.25s;
+            &:focus {
+                width: 300px;
+                border-color: #2ecc71;
+            }
+        }
+        .btn {
+            color: white;
+            background: none;
+            border-radius: 15px;
+            border: 2px  solid #3498db;
+            padding: 5px;
+            margin-top: 5px;
+            text-align: center;
+            outline: none;
+            font-weight: bold;
+            width: 263px;
+            cursor: pointer;
+            transition: 0.25s;
+            &:hover {
+                background: #2ecc71;
+                color: black;
+            }
+        }
+    }
+}

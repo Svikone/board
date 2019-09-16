@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+    <title>Document</title>
+</head>
+    
+    <div class='form' >
+        <div class='container'>
+            <div class='result'></div>
+        </div>
+        <div class='sendContainer'>
+            Введите текст
+            <input type='text' class='text' >
+            <div class='send'>Отправить</div>
+        </div>
+        <div class=''></div>
+    
+    </div>
+    
+    <div class="board">
+        <% for (i = 0; i < message.length; i++) { %>
+        <div class="notes" data_id="<%=message[i]._id%>">
+            <div class="name">
+                <%=message[i].name%>
+            </div>
+            <div class="text">
+                <%=message[i].content%>   
+            </div>
+            <div class="date">12/12/19</div>
+        </div>
+        <% } %>
+    </div>
+</body>
+</html>
