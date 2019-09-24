@@ -1,18 +1,69 @@
 /* line 1, ../sass/main.scss */
+html {
+  height: 100%;
+}
+
+/* line 4, ../sass/main.scss */
+.selected {
+  z-index: 100;
+}
+
+/* line 7, ../sass/main.scss */
 body {
   background: #607D8B;
   margin: 0px;
   padding: 0px;
+  height: 100%;
 }
 
-/* line 6, ../sass/main.scss */
+/* line 13, ../sass/main.scss */
 .form {
   padding: 10px;
   background: blue;
   border-radius: 10px;
   display: flex;
+  justify-content: space-between;
 }
-/* line 11, ../sass/main.scss */
+/* line 19, ../sass/main.scss */
+.form .UserContainer {
+  height: 20px;
+  background: #9E9E9E;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: sans-serif;
+}
+/* line 26, ../sass/main.scss */
+.form .UserContainer:hover {
+  background: #607D8B;
+}
+/* line 29, ../sass/main.scss */
+.form .UserContainer .Users {
+  display: none;
+  padding: 5px;
+  background: #3e54cc;
+  margin-top: 7px;
+  border-radius: 5px;
+  font-family: sans-serif;
+}
+/* line 36, ../sass/main.scss */
+.form .UserContainer .Users li {
+  display: flex;
+  justify-content: space-between;
+}
+/* line 39, ../sass/main.scss */
+.form .UserContainer .Users li .btn:hover {
+  color: red;
+}
+/* line 43, ../sass/main.scss */
+.form .UserContainer .Users li:hover {
+  color: #607D8B;
+}
+/* line 47, ../sass/main.scss */
+.form .UserContainer:hover .Users {
+  display: block;
+}
+/* line 54, ../sass/main.scss */
 .form .sendContainer {
   display: flex;
   flex-direction: column;
@@ -23,7 +74,7 @@ body {
   border-right: 1px solid #b8b1a6;
   border-radius: 10px;
 }
-/* line 20, ../sass/main.scss */
+/* line 63, ../sass/main.scss */
 .form .sendContainer .text {
   border: none;
   background: none;
@@ -32,7 +83,7 @@ body {
   width: 189px;
   font-size: 17px;
 }
-/* line 28, ../sass/main.scss */
+/* line 71, ../sass/main.scss */
 .form .sendContainer .send {
   padding: 5px;
   background: orange;
@@ -42,14 +93,20 @@ body {
   text-align: center;
   color: white;
 }
-/* line 36, ../sass/main.scss */
+/* line 79, ../sass/main.scss */
 .form .sendContainer .send:hover {
   cursor: pointer;
   background: #db8e01;
 }
 
-/* line 46, ../sass/main.scss */
+/* line 87, ../sass/main.scss */
+.board {
+  height: 81%;
+  position: relative;
+}
+/* line 90, ../sass/main.scss */
 .board .notes {
+  position: absolute;
   max-width: 300px;
   padding: 10px;
   background: #db8e01;
@@ -59,12 +116,12 @@ body {
   font-family: sans-serif;
 }
 
-/* line 58, ../sass/main.scss */
+/* line 103, ../sass/main.scss */
 .reg {
   display: flex;
   justify-content: center;
 }
-/* line 61, ../sass/main.scss */
+/* line 106, ../sass/main.scss */
 .reg form {
   border-radius: 20px;
   text-align: center;
@@ -74,7 +131,7 @@ body {
   color: white;
   padding: 30px 0px 30px 0px;
 }
-/* line 69, ../sass/main.scss */
+/* line 114, ../sass/main.scss */
 .reg form .intel {
   display: flex;
   /* justify-content: space-between; */
@@ -82,7 +139,7 @@ body {
   color: black;
   margin-top: 10px;
 }
-/* line 75, ../sass/main.scss */
+/* line 120, ../sass/main.scss */
 .reg form .intel .sign {
   background: #2196f3;
   flex: 1;
@@ -90,15 +147,15 @@ body {
   cursor: pointer;
   transition: 0.45s;
 }
-/* line 82, ../sass/main.scss */
+/* line 127, ../sass/main.scss */
 .reg form .intel .signIn {
   background: #8bc34a;
 }
-/* line 86, ../sass/main.scss */
+/* line 131, ../sass/main.scss */
 .reg form .signInMenu {
   display: none;
 }
-/* line 90, ../sass/main.scss */
+/* line 135, ../sass/main.scss */
 .reg form .inp {
   color: white;
   background: none;
@@ -111,12 +168,12 @@ body {
   outline: none;
   transition: 0.25s;
 }
-/* line 101, ../sass/main.scss */
+/* line 146, ../sass/main.scss */
 .reg form .inp:focus {
   width: 300px;
   border-color: #2ecc71;
 }
-/* line 106, ../sass/main.scss */
+/* line 151, ../sass/main.scss */
 .reg form .btn {
   color: white;
   background: none;
@@ -131,7 +188,7 @@ body {
   cursor: pointer;
   transition: 0.25s;
 }
-/* line 119, ../sass/main.scss */
+/* line 164, ../sass/main.scss */
 .reg form .btn:hover {
   background: #2ecc71;
   color: black;

@@ -1,13 +1,56 @@
+html {
+    height: 100%;
+}
+.selected {
+    z-index: 100;
+}
 body{
     background: #607D8B;
     margin: 0px;
     padding: 0px;
+    height: 100%;
 }
 .form {
     padding: 10px;
     background: blue;
     border-radius: 10px;
     display: flex;
+    justify-content: space-between;
+    .UserContainer {
+        height: 20px;
+        background: #9E9E9E;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: sans-serif;
+        &:hover {
+            background: #607D8B;
+        }
+        .Users {
+            display: none;
+            padding: 5px;
+            background: #3e54cc;
+            margin-top: 7px;
+            border-radius: 5px;
+            font-family: sans-serif;
+            li {
+                display: flex;
+                justify-content: space-between;
+                .btn:hover {
+                    color:red;
+                }
+            }
+            li:hover {
+                color: #607D8B;
+            }
+        }
+        &:hover .Users{
+            
+            display: block;
+        
+        }
+    }
+        
     .sendContainer {
         display: flex;
         flex-direction: column;
@@ -42,8 +85,10 @@ body{
     
 }
 .board {
-    
+    height: 81%;
+    position: relative;
     .notes {
+        position: absolute;
         max-width: 300px;
         padding: 10px;
         background: #db8e01;

@@ -1,5 +1,6 @@
+
+const api_url = "http://localhost:9000";
 $(document).ready(function(){
-    const api_url = "http://localhost:9000"
 ///registration
     $(".InSend").click(function(){
         var regName = $(".regName").val();
@@ -48,10 +49,11 @@ $(document).ready(function(){
 
     $(".send").click(function(){
         var content = $('.text').val();
+        const user = localStorage.getItem("user");
         $.ajax({
             url: `${api_url}/api/board/card/save`,
             type:"POST",
-            data:{card:{content}},
+            data:{card:{content,name:user}},
             dataType:"json",
         }).done(function(res) {
             // window.location.href = "index.php";
@@ -61,27 +63,33 @@ $(document).ready(function(){
     });
     
     $(".notes").click(function(){
+        $(this).addClass("selected");
+        $(".notes").not(".selected").css("z-index","99")
+        $(this).css("z-index","100")
         var coord = $(this).offset();
-        var left = coord.left;
-        var top = coord.top;
         var id_notes = $(this).attr("data_id");
-        console.log(top,left)
+        const card = {
+            posX: coord.left,
+            posY: coord.top,
+            id_notes
+        }
+        console.log(card)
         $.ajax({
-            url: `${api_url}/api/board/card/save_board`,
+            url: `${api_url}/api/board/card/update`,
             type:"POST",
-            data:{left,top,id_notes},
+            data:{card},
             dataType:"json",
         }).done(function(res) {
             // window.location.href = "index.php";
-        }).fail(function(err) {hg
-            alert("none");
+        }).fail(function(err) {
         });
     });
 
-    $(function() {
-        $('.notes').draggable({containment: ".board"});
-    });
-
+    $('.notes').draggable({containment: ".board"});
+    
+    
+    // <% for (item of message) { %>
+    //     <% } %>
     $(".signIn").click(function(){
         $(".signUp").css("background","none");
         $(".signIn").css("background","#8bc34a"); 
@@ -97,3 +105,60 @@ $(document).ready(function(){
     });
     
 })
+render();
+function render(){
+    const token = localStorage.getItem("x-access-token");
+
+
+    $.ajax({
+        url: `${api_url}/api/board/card/get`,
+        type:"POST",
+        data:{token},
+        dataType:"json",
+    }).done(function(res) {
+        const board = $('.board');
+        localStorage.setItem("user",res.user)
+        console.log(res)
+        for (item of res.result) {
+             
+            const note = `
+            
+                <div class="notes" data_id="${item._id}" style="left: ${item.posX}px; top: ${item.posY-115}px ;">
+                    <div class="name">
+                        ${item.name}
+                    </div>
+                    <div class="text">
+                        ${item.content}   
+                    </div>
+                    <div class="date">12/12/19</div>
+                </div>
+
+            `
+            // $(note).css({left: item.posX + 'px', top: res.posY + 'px'});
+            // console.log(item.posX, res.posY)
+            board.append(note);
+        }
+    }).fail(function(err) {
+    });
+    getUsers();
+    
+}
+function getUsers() {
+    $.ajax({
+        url: `${api_url}/user/full`,
+        type:"POST",
+        dataType:"json",
+    }).done(function(res) {
+        for (item of res) {
+            const user = `<li>${item.name} <div class="btn">Invite</div> </li>
+                            
+                            `
+           $('.Users').append(user);
+        }
+        // window.location.href = "index.php";
+    }).fail(function(err) {
+    });
+}
+
+
+

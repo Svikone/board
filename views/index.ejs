@@ -12,30 +12,24 @@
 </head>
     
     <div class='form' >
-        <div class='container'>
+        <!-- <div class='container'>
             <div class='result'></div>
-        </div>
+        </div> -->
         <div class='sendContainer'>
             Введите текст
             <input type='text' class='text' >
             <div class='send'>Отправить</div>
         </div>
-        <div class=''></div>
+        <div class='UserContainer'>Все пользователи
+            <div class="Users">
+               
+            </div>
+        </div>
     
     </div>
     
     <div class="board">
-        <% for (i = 0; i < message.length; i++) { %>
-        <div class="notes" data_id="<%=message[i]._id%>">
-            <div class="name">
-                <%=message[i].name%>
-            </div>
-            <div class="text">
-                <%=message[i].content%>   
-            </div>
-            <div class="date">12/12/19</div>
-        </div>
-        <% } %>
+        
     </div>
 </body>
 </html>

@@ -1,31 +1,25 @@
 const db = require("../db");
 
-exports.signup = (user, cb) => {
-    db.get().collection("users").findOne({name:user.name},function (err, result) {
-
+exports.signup = async (user) => {
+    const result = await db.get().collection("users").findOne({name:user.name});
         if(result == null){
-
-            db.get().collection("users").insert({
+            const succes = await db.get().collection("users").insert({
                 name: user.name,
                 password: user.password
-            }).then(res => {
-                cb({status: 200, messsage: "query sucessfull"})
-            }).catch(error => {
-                cb({status: 500, message: "query failed"})
-            })
+            });
+            if(succes) return {status: 200, message: "succes true"}
         }
         else {
-            cb({status: 500, message: "user exist"})
+            return {status: 500, message: "user exist"}
         }
-    });
-
-
 }
 
-exports.signin = (user, cb) => {
-    db.get().collection("users").findOne({name:user.name, password:user.password},function (err, result) {
-        if(!err && result != null) {
-            cb(result);
-        }
-    });
+exports.signin = async (user) => {
+    return await db.get().collection("users").findOne({name:user.name, password:user.password});
+}
+
+
+exports.users = async () => {
+    return await db.get().collection("users").find().toArray();
+
 }

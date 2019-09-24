@@ -11,9 +11,20 @@ exports.signup = (req, res) => {
         password:  req.body.regPass
     }
 
-    Modules.signup(user, (result) => {
+    Modules.signup(user).then(result => {
         res.send(result);
+    }).catch(err => {
+        console.log(err)
+    });
+}
+
+exports.users = (req, res) => {
+    Modules.users().then(result => {
+        res.send(result);
+    }).catch(err => {
+        console.log(err)
     })
+    
 }
 
 exports.signin = (req, res) => {
@@ -21,19 +32,13 @@ exports.signin = (req, res) => {
         name: req.body.name,
         password:  req.body.password
     }
-    Modules.signin(user, (result) => {
-
-        if(result){
-            
-            jwt.sign({user:user}, 'secretkey', (err, token) => {
-                req.headers['x-access-token'] = token;
-                // 
-                console.log(token)
-                res.json({
-                    token
-                });
-            });
-
-        }
+    Modules.signin(user).then(result => {
+        jwt.sign({user:user}, 'secretkey', (err, token) => {
+            req.headers['x-access-token'] = token;
+            res.json({token});
+        });
+        console.log(result)
+    }).catch(err => {
+        console.log(err)
     })
 }
