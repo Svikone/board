@@ -1,2 +1,5 @@
 node_modules
 .config
+php
+index.php
+reg.php

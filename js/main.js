@@ -54,6 +54,7 @@ $(document).ready(function(){
             url: `${api_url}/api/board/card/save`,
             type:"POST",
             data:{card:{content,name:user}},
+            headers: {"x-access-token": localStorage.getItem('x-access-token')},
             dataType:"json",
         }).done(function(res) {
             // window.location.href = "index.php";
@@ -159,6 +160,5 @@ function getUsers() {
     }).fail(function(err) {
     });
 }
-
 
 
